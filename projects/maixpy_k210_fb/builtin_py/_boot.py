@@ -59,6 +59,7 @@ finally:
 '''
 
 os.chdir("/flash") #boot via flash
+
 flash_ls = os.listdir()
 if not "main.py" in flash_ls:
     f = open("main.py", "wb")
