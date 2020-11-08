@@ -13,6 +13,8 @@ else:
 sys.path.append('/flash')
 del devices
 
+os.chdir("/flash") #boot via flash
+
 print("[MaixPy] init end") # for IDE
 for i in range(200):
     time.sleep_ms(1) # wait for key interrupt(for maixpy ide)
@@ -69,10 +71,11 @@ if not "main.py" in flash_ls:
 del main_py
 
 flash_ls = os.listdir("/flash")
-try:
-    sd_ls = os.listdir("/sd")
-except Exception:
-    sd_ls = []
+#try:
+#    sd_ls = os.listdir("/sd")
+#except Exception:
+#    sd_ls = []
+sd_ls = []
 if "cover.boot.py" in sd_ls:
     code0 = ""
     if "boot.py" in flash_ls:
